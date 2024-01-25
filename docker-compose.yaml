@@ -1,0 +1,8 @@
+services:
+  pacman:
+    build: .
+    volumes:
+      - $HOME/.Xauthority:/home/blinky/.Xauthority
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=$DISPLAY
