@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 project(EnTT_Pacman)
 
-add_executable(pacman
+add_library(${PROJECT_NAME}
     src/comp/chase_target.hpp
     src/comp/dir.hpp
     src/comp/ghost.hpp
@@ -53,6 +53,9 @@ add_executable(pacman
     src/util/sdl_quad_writer.hpp
     src/util/sprites.cpp
     src/util/sprites.hpp
+)
+
+add_executable(pacman_exe
     src/main.cpp
 )
 
@@ -60,7 +63,7 @@ if(CMAKE_TOOLCHAIN_FILE)
     message("Using SDL2 toolchain file")
     message(${CMAKE_TOOLCHAIN_FILE})
     find_package(SDL2 CONFIG REQUIRED)
-    target_link_libraries(pacman
+    target_link_libraries(pacman_exe
         PRIVATE
         SDL2::SDL2
         SDL2::SDL2main
@@ -70,29 +73,51 @@ else()
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
     find_package(SDL2 REQUIRED)
 
-    target_include_directories(pacman
+    target_include_directories(${PROJECT_NAME}
         PRIVATE
         "${SDL2_INCLUDE_DIR}"
     )
-    target_link_libraries(pacman
+    target_link_libraries(${PROJECT_NAME}
         PRIVATE
         "${SDL2_LIBRARY}"
     )
+
+    target_include_directories(pacman_exe
+        PRIVATE
+        "${SDL2_INCLUDE_DIR}"
+    )
+    target_link_libraries(pacman_exe
+        PRIVATE
+        ${PROJECT_NAME}
+    )
 endif()
 
-target_include_directories(pacman
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+    "${CMAKE_SOURCE_DIR}/third_party"
+    "${CMAKE_SOURCE_DIR}/src"
+)
+target_include_directories(pacman_exe
     PRIVATE
     "${CMAKE_SOURCE_DIR}/third_party"
     "${CMAKE_SOURCE_DIR}/src"
 )
 
-target_compile_features(pacman
+target_compile_features(${PROJECT_NAME}
+    PRIVATE
+    cxx_std_17
+)
+target_compile_features(pacman_exe
     PRIVATE
     cxx_std_17
 )
 
 if(CMAKE_BUILD_TYPE MATCHES DEBUG)
-    target_compile_options(pacman
+    target_compile_options(${PROJECT_NAME}
+        PRIVATE
+        -Wall -Wextra -Wpedantic
+    )
+    target_compile_options(pacman_exe
         PRIVATE
         -Wall -Wextra -Wpedantic
     )
