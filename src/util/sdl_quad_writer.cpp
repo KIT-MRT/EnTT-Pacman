@@ -6,9 +6,9 @@
 //  Copyright © 2020 Indiana Kernick. All rights reserved.
 //
 
-#include "sdl_quad_writer.hpp"
+#include "util/sdl_quad_writer.hpp"
 
-#include "sdl_check.hpp"
+#include "util/sdl_check.hpp"
 
 SDL::QuadWriter::QuadWriter(
   SDL_Renderer *renderer,

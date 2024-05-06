@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "player_ghost_collide.hpp"
+#include "sys/player_ghost_collide.hpp"
 
 #include "comp/dir.hpp"
 #include "comp/ghost.hpp"

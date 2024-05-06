@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "eat_dots.hpp"
+#include "sys/eat_dots.hpp"
 
 #include "comp/player.hpp"
 #include "comp/position.hpp"

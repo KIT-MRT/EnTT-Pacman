@@ -6,12 +6,12 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "app.hpp"
+#include "core/app.hpp"
 
 #include <SDL.h>
 #include <iostream>
-#include "game.hpp"
-#include "constants.hpp"
+#include "core/game.hpp"
+#include "core/constants.hpp"
 #include "util/frame_cap.hpp"
 #include "util/sdl_check.hpp"
 #include "util/sdl_delete.hpp"

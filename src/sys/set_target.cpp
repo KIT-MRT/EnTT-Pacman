@@ -6,9 +6,9 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "set_target.hpp"
+#include "sys/set_target.hpp"
 
-#include "can_move.hpp"
+#include "sys/can_move.hpp"
 #include "comp/dir.hpp"
 #include "comp/target.hpp"
 #include "comp/position.hpp"

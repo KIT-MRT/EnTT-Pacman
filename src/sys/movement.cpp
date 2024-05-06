@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "movement.hpp"
+#include "sys/movement.hpp"
 
 #include "comp/dir.hpp"
 #include "sys/can_move.hpp"

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "house.hpp"
+#include "sys/house.hpp"
 
 #include "comp/house.hpp"
 #include "comp/target.hpp"

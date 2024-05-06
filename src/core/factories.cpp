@@ -6,10 +6,10 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "factories.hpp"
+#include "core/factories.hpp"
 
 #include "comp/dir.hpp"
-#include "constants.hpp"
+#include "core/constants.hpp"
 #include "comp/house.hpp"
 #include "comp/ghost.hpp"
 #include "comp/sprite.hpp"

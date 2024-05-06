@@ -6,9 +6,9 @@
 //  Copyright © 2020 Indiana Kernick. All rights reserved.
 //
 
-#include "sdl_load_texture.hpp"
+#include "util/sdl_load_texture.hpp"
 
-#include "sdl_check.hpp"
+#include "util/sdl_check.hpp"
 
 SDL::Texture SDL::loadTexture(SDL_Renderer *renderer, const animera::TextureInfo &info) {
   SDL::Texture tex{SDL_CHECK(SDL_CreateTexture(

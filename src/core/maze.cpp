@@ -6,9 +6,9 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "maze.hpp"
+#include "core/maze.hpp"
 
-#include "constants.hpp"
+#include "core/constants.hpp"
 
 namespace {
 

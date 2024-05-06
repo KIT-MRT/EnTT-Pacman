@@ -10,6 +10,7 @@ RUN mkdir -p /opt/pacman && chown 1000:1000 /opt/pacman
 
 COPY animations /opt/pacman/animations
 COPY cmake /opt/pacman/cmake
+COPY include /opt/pacman/include
 COPY src /opt/pacman/src
 COPY third_party /opt/pacman/third_party
 COPY CMakeLists.txt /opt/pacman/CMakeLists.txt

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "player_input.hpp"
+#include "sys/player_input.hpp"
 
 #include "comp/dir.hpp"
 #include "comp/player.hpp"

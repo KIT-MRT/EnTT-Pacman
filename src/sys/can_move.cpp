@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "can_move.hpp"
+#include "sys/can_move.hpp"
 
 #include "comp/house.hpp"
 #include "util/dir_to_pos.hpp"

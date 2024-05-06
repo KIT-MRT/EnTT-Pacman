@@ -6,9 +6,9 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "game.hpp"
+#include "core/game.hpp"
 
-#include "constants.hpp"
+#include "core/constants.hpp"
 #include "sys/house.hpp"
 #include "sys/render.hpp"
 #include "sys/eat_dots.hpp"

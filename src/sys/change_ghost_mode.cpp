@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "change_ghost_mode.hpp"
+#include "sys/change_ghost_mode.hpp"
 
 #include "comp/house.hpp"
 #include "comp/ghost.hpp"

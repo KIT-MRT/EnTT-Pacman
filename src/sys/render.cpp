@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "render.hpp"
+#include "sys/render.hpp"
 
 #include "comp/dir.hpp"
 #include "comp/sprite.hpp"

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Indiana Kernick. All rights reserved.
 //
 
-#include "pursue_target.hpp"
+#include "sys/pursue_target.hpp"
 
 #include <algorithm>
 #include "comp/dir.hpp"
