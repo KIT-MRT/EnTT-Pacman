@@ -22,7 +22,6 @@ public:
   bool logic();
   void render(SDL::QuadWriter &, int);
 
-private:
   enum class State {
     playing,
     won,
