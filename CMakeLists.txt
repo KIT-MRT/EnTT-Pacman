@@ -25,6 +25,8 @@ add_executable(pacman_exe
     src/main.cpp
 )
 
+add_library(entt INTERFACE)
+
 if(CMAKE_TOOLCHAIN_FILE)
     message("Using SDL2 toolchain file")
     message(${CMAKE_TOOLCHAIN_FILE})
@@ -59,14 +61,19 @@ else()
 endif()
 
 target_include_directories(${PROJECT_NAME}
-    PRIVATE
-    "${CMAKE_SOURCE_DIR}/third_party"
-    "${CMAKE_SOURCE_DIR}/include/pacman"
+    PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include/pacman>
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/third_party>
+    $<INSTALL_INTERFACE:include/pacman>
 )
 target_include_directories(pacman_exe
     PRIVATE
     "${CMAKE_SOURCE_DIR}/third_party"
     "${CMAKE_SOURCE_DIR}/include/pacman"
+)
+target_include_directories(entt
+    INTERFACE
+    include/entt
 )
 
 target_compile_features(${PROJECT_NAME}
@@ -126,6 +133,9 @@ install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
               "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
         DESTINATION lib/cmake/${PROJECT_NAME})
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION include)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/third_party/entt/
+    DESTINATION include/entt
+)
 
 set_target_properties(pacman_exe PROPERTIES OUTPUT_NAME "pacman")
 install(TARGETS pacman_exe
