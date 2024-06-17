@@ -70,7 +70,6 @@ bool Game::logic() {
   }
   ++ticks;
 
-  movement(reg);
   wallCollide(reg, maze);
   dots += eatDots(reg, maze);
   if (eatEnergizer(reg, maze)) {
@@ -97,6 +96,9 @@ bool Game::logic() {
   } else if (dots == dotsInMaze) {
     state = State::won;
   }
+
+  movement(reg);
+
   return true;
 }
 

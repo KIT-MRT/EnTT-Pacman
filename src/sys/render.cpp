@@ -19,10 +19,12 @@
 void playerRender(entt::registry &reg, SDL::QuadWriter &writer, const int frame) {
   const auto view = reg.view<Position, ActualDir, DesiredDir, PlayerSprite>();
   for (const entt::entity e : view) {
-    const Pos pos = view.get<Position>(e).p * tileSize;
+    const Pos currentPos = view.get<Position>(e).p * tileSize;
     const Dir actualDir = view.get<ActualDir>(e).d;
     const double angle = static_cast<double>(view.get<DesiredDir>(e).d) * 90.0;
-    writer.tilePos(pos + toPos(actualDir, frame), Pos{tileSize, tileSize}, angle);
+    const Pos deltaPos = toPos(actualDir, tileSize);
+    const Pos lastPos = currentPos - deltaPos;
+    writer.tilePos(lastPos + toPos(actualDir, frame), Pos{tileSize, tileSize}, angle);
     writer.tileTex(view.get<PlayerSprite>(e).id + frame);
     writer.render();
   }
@@ -31,9 +33,11 @@ void playerRender(entt::registry &reg, SDL::QuadWriter &writer, const int frame)
 void ghostRender(entt::registry &reg, SDL::QuadWriter &writer, const int frame) {
   const auto view = reg.view<Position, ActualDir, GhostSprite>();
   for (const entt::entity e : view) {
-    const Pos pos = view.get<Position>(e).p * tileSize;
+    const Pos currentPos = view.get<Position>(e).p * tileSize;
     const Dir actualDir = view.get<ActualDir>(e).d;
-    writer.tilePos(pos + toPos(actualDir, frame), Pos{tileSize, tileSize});
+    const Pos deltaPos = toPos(actualDir, tileSize);
+    const Pos lastPos = currentPos - deltaPos;
+    writer.tilePos(lastPos + toPos(actualDir, frame), Pos{tileSize, tileSize});
     const int dirOffset = (
       actualDir == Dir::none ? 0 : static_cast<int>(actualDir)
     );
